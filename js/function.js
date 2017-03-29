@@ -8,3 +8,6 @@ function fn(a) {
     console.log(a);
 }
 fn(1);
+
+// function a() {}
+// 2
