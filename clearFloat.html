@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>清除浮动</title>  //The application scenarios of 'clear:both'
+    <style>
+        .box{border:1px solid #000;color:#fff;margin: 50px auto;padding:50px;}
+        .a{width: 50px;height: 50px;background: red;float: left}
+        .b{width: 50px;height: 50px;background: #000;float: left}
+        .c{width: 50px;height: 50px;background: green;float: left}
+        .d{width: 50px;height: 50px;background: yellow;clear: both}              /*the use of 'clear:both'*/
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="a">1</div>
+    <div class="b">2</div>
+    <div class="c">3</div>
+    <div class="d">4</div>
+</div>
+</body>
+</html>
