@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>证实return的用法</title>
+</head>
+<body>
+
+<script>
+    function a(){
+        for(var i=0;i<5;i++){
+            console.log(i);
+            if(i==3){
+                return false;
+            }
+            console.log('return下面的代码'+i);
+        }
+    };
+    a();
+</script>
+<!--return只能用在函数里面，如果不放在函数里面就报错。-->
+</body>
+</html>
