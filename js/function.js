@@ -8,6 +8,7 @@ function fn(a) {
     function a() {}
     console.log(a);
 }
+console.log('第一题');
 fn(1);
 
 // function a() {}
@@ -19,13 +20,12 @@ function fn1() {
     console.log(a);
     var a = 2;
 }
+console.log('第二题');
 fn1();
 console.log(a);
 
 // undefiner
 // 1
-
-
 
 
 // 第一个题解析：
