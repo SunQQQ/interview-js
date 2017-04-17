@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用js实现电子表</title>
+</head>
+<body>
+<!--要求最终效果  16：30：00-->
+<div class="">
+    <span id="hour">44</span>:<span id="minut">66</span>:<span id="seconds">99</span>
+</div>
+<script>
+    function change() {
+        var data = new Date();
+        if(data.getHours()<10){
+            document.getElementById('hour').innerHTML = "0" + data.getHours();
+        }else {
+            document.getElementById('hour').innerHTML = data.getHours();
+        }
+
+        if(data.getMinutes()<10){
+            document.getElementById('minut').innerHTML = "0"+data.getMinutes();
+        }else {
+            document.getElementById('minut').innerHTML = data.getMinutes();
+        }
+
+        if(data.getSeconds()<10){
+            document.getElementById('seconds').innerHTML = "0"+data.getSeconds();
+        }else {
+            document.getElementById('seconds').innerHTML = data.getSeconds();
+
+        }
+    }
+
+    setInterval("change()",50);
+</script>
+</body>
+</html>
