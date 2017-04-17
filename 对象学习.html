@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学习对象</title>
+</head>
+<body>
+    <script>
+        function people() {
+            this.name='lala';
+        }
+        people.prototype.age = '10';
+        var me = new people();
+        console.log(me.name);
+        console.log(me.age);
+//        以上得出两点：
+//        1.构造函数里面的属性是this.属性名=属性值，来添加属性的
+//        2.通过构造函数new出的对象，该对象的proto指向构造函数的prototype属性
+
+
+        function null_value() {
+            console.log(arguments[0]+arguments[1]);
+        }
+        null_value('sunquan','zhengzhou');
+//        以上得出函数不关心函数签名，参数都存在arguments
+    </script>.
+</body>
+</html>
