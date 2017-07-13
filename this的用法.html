@@ -14,9 +14,25 @@
     var oBtn = document.getElementById('btn1');
     oBtn.onclick = fn1;    //当函数作为对象的属性，函数里面的this指向调用它的对象。这个我怀疑也是，指向调用它的对象
 
+//    对比用代码，不能删除
 //    oBtn.onclick = function () {
 //        fn1();   //一般函数下的this，还是指向全局变量window，不过严格模式下指向undefined
 //    }
+
+    
+    function test(a,b) {
+        this.a = a;
+        this.b = b;
+    }
+    var one = new test(3,100);
+    console.log('one的a等于'+one.a);
+
+    var test2 = function (a,b) {
+        this.a = a;
+        this.b = b;
+    }
+    var two = new test2(1000,2000);
+    console.log('two的b等于'+two.b);
 </script>
 </body>
 </html>
