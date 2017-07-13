@@ -4,14 +4,37 @@
     <meta charset="UTF-8">
     <title>转圈的等边三角形</title>
     <style>
+        .circle{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            position: relative;
+        }
+        .circle .angle{
+            border-radius: 100%;
+            width: 25px;
+            height:25px;
+            background-color: red;
+            position: absolute;
+
+            animation: moveRight 5s linear infinite;
+        }
+        @keyframes moveRight{
+            0%{left:0px;top:0px;}
+            25% {top:0px;left: 175px;background-color: yellow}
+            50%{left:175px;top:175px;background-color: blue}
+            75%{left:0px; top:175px;background-color: green}
+            100%{left:0;top:0;background-color: red}
+        }
     </style>
 </head>
 <body>
 <!--使用div元素创建一个边长为30px的等边三角形（尖朝上），让该等边三角形以5秒为周期-->
 <!--重复的沿着边长为200px的正方形做顺时针运动，起始颜色为红色，到右上角时-->
 <!--平滑的渐变为黄色，到右下角时渐变为蓝色，到左下角时渐变为绿色；-->
-<div>
-
+<div class="circle">
+    <div class="angle">
+    </div>
 </div>
 </body>
 </html>
