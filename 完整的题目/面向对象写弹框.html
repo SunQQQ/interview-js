@@ -3,8 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+        .backg{
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            position: fixed;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .pop{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid red;
+            background-color: white;
+            z-index: 100;
+        }
+    </style>
 </head>
 <body>
+<div class="dialog">
+    <div class="backg"></div>
+    <div class="pop">
+        民办
+    </div>
+</div>
 
+<script>
+    function Pop(message) {
+        this.message = message;
+        //设置字体为message
+    }
+    Pop.prototype.show = function () {
+        //弹框显示
+    }
+
+    var pop = new Pop();
+</script>
 </body>
 </html>
