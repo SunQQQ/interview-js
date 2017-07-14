@@ -9,8 +9,7 @@ var obj = {
     length:5,
     method:function (fn) {
         fn();
-        fn.call(obj);
-        arguments[0];
+        fn.call(obj);   //call的含义是：在obj环境中执行一遍函数fn的语句
     }
 }
 obj.method(fn);
