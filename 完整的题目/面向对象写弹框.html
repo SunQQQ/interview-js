@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>面向对象写弹框</title>
     <meta name="viewport" content="width=device-width">
     <style>
+        .dialog{
+            display: none;
+        }
         .backg{
             left: 0;
             right: 0;
@@ -18,12 +21,32 @@
             top: 50%;
             left: 50%;
             -webkit-transform: translate(-50%, -50%);
-            width: 80%;
+            width: 70%;
             margin: 0 auto;
             text-align: center;
             border: 1px solid red;
             background-color: white;
             z-index: 100;
+        }
+        .pop .note{
+            text-align: center;
+            margin: 20px 0;
+        }
+        .pop .buttons{
+            display: flex;
+            align-items: center;
+            text-align: center;
+            border-top: 1px solid red;
+        }
+        .pop .buttons .but{
+            flex: 1;
+            border-right: 1px solid red;
+            padding: 5px 0;
+            display: none;
+        }
+        .pop .buttons .but :last-child{
+            border-right: none;
+            display: none;
         }
     </style>
 </head>
@@ -31,20 +54,40 @@
 <div class="dialog">
     <div class="backg"></div>
     <div class="pop">
-        民办
+        <div class="note" id="note">操作成功</div>
+        <div class="buttons">
+            <div class="but">确认</div>
+            <div class="but">取消</div>
+        </div>
     </div>
 </div>
 
 <script>
-    function Pop(message) {
-        this.message = message;
-        //设置字体为message
-    }
-    Pop.prototype.show = function () {
-        //弹框显示
+    function PopFactory(name,message) {
+        function Pop(){
+            this.message = message;
+        }
+
+        Pop.prototype.show = function () {
+            //设置字体为message
+            document.getElementById("note").innerHTML = this.message;
+            //弹框显示
+            document.getElementsByClassName("dialog")[0].style.display = "block";
+            if(name == "SelectPop"){
+                //显示按钮
+                document.getElementsByClassName("but")[0].style.display = "block";
+                document.getElementsByClassName("but")[1].style.display = "block";
+            }
+            if(name == "SurePop"){
+                //显示按钮
+                document.getElementsByClassName("but")[0].style.display = "block";
+            }
+        }
+        return new Pop();
     }
 
-    var pop = new Pop();
+    var selectPop = new PopFactory("SurePop","那个男人");
+    selectPop.show();
 </script>
 </body>
 </html>
