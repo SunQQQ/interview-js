@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>屏幕居中悬浮框</title>
+    <style>
+        .a{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+
+            padding: 150px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<!--当使用：top: 50%;left: 50%;， 是以左上角为原点，故不处于中心位置-->
+<!--translate(-50%,-50%) 作用是，往上（x轴）,左（y轴）移动自身长宽的 50%，以使其居于中心位置-->
+<div class="a">
+    弹框
+</div>
+</body>
+</html>
