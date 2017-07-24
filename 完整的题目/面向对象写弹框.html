@@ -65,6 +65,7 @@
 <script>
     function PopFactory(name,message) {
         function Pop(){
+            this.name = name;
             this.message = message;
         }
 
@@ -86,7 +87,7 @@
         return new Pop();
     }
 
-    var selectPop = new PopFactory("SurePop","那个男人");
+    var selectPop = new PopFactory("SelectPop","那个男人");
     selectPop.show();
 </script>
 </body>
