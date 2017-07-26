@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <title>屏幕居中悬浮框</title>
     <style>
-        .a{
-            position: absolute;
+        .box{
+            /*position: relative;*/
+            /*width: 500px;*/
+            /*height: 500px;*/
+        }
+        .box .con{
             left: 50%;
             top: 50%;
-            -webkit-transform: translate(-50%, -50%);
-
-            padding: 150px;
+            position: fixed;
+            -webkit-transform: translate(-50%,-50%);
+            -moz-transform: translate(-50%,-50%);
+            width: 50px;
+            height: 50px;
             border: 1px solid red;
         }
     </style>
@@ -18,8 +24,12 @@
 <body>
 <!--当使用：top: 50%;left: 50%;， 是以左上角为原点，故不处于中心位置-->
 <!--translate(-50%,-50%) 作用是，往上（x轴）,左（y轴）移动自身长宽的 50%，以使其居于中心位置-->
-<div class="a">
-    弹框
+
+<!--fix就脱离文档流了，跟父元素没有关系了-->
+<div class="box">
+    <div class="con">
+        弹框
+    </div>
 </div>
 </body>
 </html>

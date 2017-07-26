@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>检测数据类型的各种发放</title>
+</head>
+<body>
+<script>
+//    方法一共有：typeof、instance of、
+//数据类型：undefined,null,boolean,number,string,object
+
+var myString = "abc";
+var myObject = {a:1};
+var myBoolean = true;
+var myNull = null;
+var myUndefined = undefined;
+var myNumber = 123;
+
+var myArray = [1,2,3];
+var myFunction = function () {
+    console.log("enhen");
+};
+
+
+
+
+//其实对于typeof来说，也就null比较特殊。
+console.log(typeof myString);
+console.log(typeof myObject);
+console.log(typeof myBoolean);
+console.log(typeof myNull);    //严加注意，极易出错
+console.log(typeof myUndefined);
+console.log(typeof myNumber);
+
+console.log(typeof myArray);
+console.log(typeof myFunction);
+
+console.log(myString instanceof String);
+console.log(myObject instanceof Object);
+
+</script>
+</body>
+</html>

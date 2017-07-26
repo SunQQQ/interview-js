@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历li</title>
+</head>
+<body>
+<ul>
+    <li>test1</li>
+    <li>test2</li>
+    <li>test3</li>
+    <li>test4</li>
+    <li>test5</li>
+</ul>
+
+<script>
+    var lis = document.getElementsByTagName("ul")[0].getElementsByTagName("li");
+    for(var i=0;i<lis.length;i++){
+        console.log(lis[i].innerHTML);
+    }
+</script>
+</body>
+</html>
