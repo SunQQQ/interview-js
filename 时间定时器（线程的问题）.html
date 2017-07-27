@@ -8,7 +8,7 @@
 <script>
     var a = 6;
     setTimeout(function () {
-        alert(a);
+        console.log(a);
         a = 666;
     },1000);
     a = 66;
@@ -16,6 +16,16 @@
 //    这个题目考察js的线程问题，js只有一个线程
 //    所以刚加入到队列里的代码只能等着前面的代码执行完毕才能执行
 //    原理是等待1秒后再将function里面的代码加入队列中，所以没加入前是正常运行的
+
+    console.log("第四题");
+    console.log("one");
+    setTimeout(function () {
+        console.log("two");
+    },0);
+    console.log("three");
+
+//    这个题目考查setTimeout方法延长时间为0时，脱离了队列。不过它脱离几秒，既然脱离了
+//    就会让下面的语句先执行，再将它放入队列
 </script>
 </body>
 </html>

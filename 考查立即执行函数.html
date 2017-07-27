@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>考查立即执行函数</title>
+</head>
+<body>
+<script>
+//    前2个题目中，dbl属性中this.val语句，有没有this很重要。如果有this，则val操作的是json.val
+//    如果没有this则操作的是全局的val变量
+//    第3题，如果找不到变量会报错，uncaught error,bar is undefined
+    (function () {
+        var val = 1;
+        var json = {
+            val:10,
+            dbl:function () {
+                this.val *=2;
+            }
+        };
+        json.dbl();
+        console.log(json.val);
+        console.log(val);
+    }());
+
+    (function () {
+        var val = 1;
+        var json = {
+            val:10,
+            dbl:function () {
+                val *=2;
+            }
+        };
+        json.dbl();
+        console.log(json.val);
+        console.log(val);
+    }());
+
+
+    console.log("第三题");
+
+    var foo = "hello";
+    (function () {
+        var bar = "world";
+        console.log(foo + bar);
+    })();
+//    console.log(foo+bar);   //这句也是考察之一，但是会出错，所以注释掉
+
+    console.log("第四题");
+    (function func() {
+        var a=b="res";
+    })();
+    console.log(b);
+    console.log(a);
+</script>
+</body>
+</html>

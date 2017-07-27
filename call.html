@@ -5,6 +5,54 @@
     <title>call()的用法</title>
 </head>
 <body>
-<script src="js/call.js"></script>
+<script>
+    /**
+     * Created by OnlyMid on 2017/3/29.
+     */
+// var length = 10;
+// function fn() {
+//     console.log(this.length);
+// }
+// var obj = {
+//     length:5,
+//     method:function (fn) {
+//         fn();
+//         fn.call(obj);   //call的含义是：在obj环境中执行一遍函数fn的语句
+//     }
+// }
+// obj.method(fn);
+
+// 题目2：以下代码，console.log出来的值是多少。
+    window.val=1;
+    var json={
+        val:10,
+        dbl:function () {
+            this.val = 2;
+        }
+    };
+    json.dbl();//json.val = 2
+    var dbl = json.dbl;
+    dbl();
+    json.dbl.call(window);
+    console.log(window.val);//在window的执行环境下，运行this.val=2，就等于运行window.val=2
+    console.log(json.val);//运行dbl()  相当于运行json.dbl（），this.val=2,相当于json.val=2
+
+    console.log(window.name);
+//    题目3：请写出下面代码的执行结果
+    var obj = {
+        name:"obj",
+        dose:function () {
+            this.name="dose";
+            return function () {
+                return this.name;
+            }
+        }
+    }
+//    console.log(obj.dose());
+    console.log(obj.dose().call(this));
+//    这个问题真的是酷毙了，考察了很多点。比如对象的属性是个方法，而且那个方法里面返回了一个函数。
+//    这种情况下就返回该函数，不再运行里面的内容，如果要执行里面内容，需要两个括号。
+//    window.name返回空
+</script>
 </body>
 </html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>考查函数作用域</title>
+</head>
+<body>
+<script>
+//    题目：请写出以下代码的运行结果
+    function func1() {
+        var n=99;
+        nAdd=function () {
+            console.log(this.n);
+            this.n+=1;
+            console.log(this.n);
+        };
+        function func2() {
+            console.log(n);
+        }
+        return func2;
+    }
+    var result = func1();
+    result();
+    nAdd();
+    result();
+
+
+//    这个题考察的很巧妙，要知道this.n就是要的当前执行环境下的n，跟外层没关系。
+//    undefined+1就会返回NaN
+</script>
+</body>
+</html>

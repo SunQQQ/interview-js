@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>考查声明提前</title>
+</head>
+<body>
+<script>
+    var a=1;
+    function func() {
+        console.log(a);
+        var a = "in function";
+    }
+    func();
+    console.log(a);
+</script>
+</body>
+</html>
