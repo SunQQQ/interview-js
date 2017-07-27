@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时间定时器（线程的问题）</title>
+</head>
+<body>
+<script>
+    var a = 6;
+    setTimeout(function () {
+        alert(a);
+        a = 666;
+    },1000);
+    a = 66;
+
+//    这个题目考察js的线程问题，js只有一个线程
+//    所以刚加入到队列里的代码只能等着前面的代码执行完毕才能执行
+//    原理是等待1秒后再将function里面的代码加入队列中，所以没加入前是正常运行的
+</script>
+</body>
+</html>
