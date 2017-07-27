@@ -6,7 +6,10 @@
 </head>
 <body>
 <script>
-//    题目如pic下图片所示
+    //    题目如pic下图片所示
+    //    思路是：从一个分支一直查到底，最终遍历整个树。用递归，自己调用自己的方法
+    //当发现需要无限循环下去时就应该想到用递归（自己调用自己），只写好一层循环，再循环时就调用自己即可
+
 var testObject = {id:"001",name:"根",children:[
         {id:"011",name:"子一",children:[
             {id:"021",name:"孙一",children:false},
@@ -21,49 +24,43 @@ var testObject = {id:"001",name:"根",children:[
             ]},
         ]}
 ]};
-//function getNodeById(data,id) {
-//    if(data.children){
-//        for(var i=0;i<data.children.length;i++){
-//            if(data.children[i].id==id){
-//                console.log(data.children[i].name);
-//                break;
-//            }else {
-//                if(data.children[i].children){
-//                    for(var v=0;v<data.children[i].children.length;v++){
-//                        if(data.children[i].children[v].id==id){
-//                            console.log(data.children[i].children[v].name);
-//                            break;
-//                        }else {
-//                            continue;
-//                        }
-//                    }
-//                }else {
-//                    continue;
-//                }
-//            }
-//        }
-//    }
-//}
-
-function getNodeById(data, id) {
-    if (id === data.id) {
-        return data;
-    } else if (data.children) {
-        var i = 0,
-            node = null;
-        for (len = data.children.length; i < len; i++) {
-            node = getNodeById(data.children[i], id);
-            if (node) {
+function getNodeById(data,id) {
+    if(data.children){
+        for(var i=0;i<data.children.length;i++){
+            if(data.children[i].id==id){
+                console.log(data.children[i].name);
                 break;
+            }else {
+                if(data.children[i].children){
+                    getNodeById(data.children[i],id);
+                }else {
+                    continue;
+                }
             }
         }
-        return node;
-    } else {
+    }else {
         return null;
     }
 }
+//function getNodeById(data, id) {
+//    if (id === data.id) {
+//        return data;
+//    } else if (data.children) {
+//        var i = 0,
+//            node = null;
+//        for (var len = data.children.length; i < len; i++) {
+//            node = getNodeById(data.children[i], id);
+//            if (node) {
+//                break;
+//            }
+//        }
+//        return node;
+//    } else {
+//        return null;
+//    }
+//}
 
-console.log(getNodeById(testObject,"032"));
+getNodeById(testObject,"023");
 </script>
 </body>
 </html>
