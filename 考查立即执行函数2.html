@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>考查立即执行函数</title>
+</head>
+<body>
+<script>
+    console.log("第一题");
+//    一下代码的运行结果
+    var myObject = {
+        foo:"bar",
+        func:function () {
+            var self = this;
+            console.log("outer func | this.foo" +this.foo);
+            console.log("outer func | self.foo" +self.foo);
+            (function() {
+                console.log("inner func | this.foo" + this.foo);
+                console.log("inner func | self.foo" + self.foo);
+            })();
+        }
+    };
+    myObject.func();
+//    这题考查
+    // 1.对象的方法里的this指向这个对象
+    // 2.立即执行函数是一个新的作用域，里面的this就在该作用域里
+</script>
+</body>
+</html>

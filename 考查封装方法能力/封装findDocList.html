@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>封装findDocList</title>
+</head>
+<body>
+<script>
+//    请实现以下的findDocList方法：最终可以实现：
+//    findDocList(docs,["hello"])//文档1，文档2，文档3
+//    findDocList(docs,["hello",'world']);//文档1
+
+//    题目分析：模糊或完全匹配数组中的项
+    var docs = [
+        {id:1,words:['hello',"world"]},
+        {id:2,words:["hello","kids"]},
+        {id:3,words:["zzzz","hello"]},
+        {id:4,words:["world",'kids']}
+    ];
+
+    console.log(findDocList(docs,['hello']));
+
+function findDocList(docs,key) {
+    if(key.length!=0){
+        for(var i=0;i<docs.length;i++){
+            for(var v=0;v<docs[i].words.length;v++){
+                if(key.length==1){
+                    if(docs[i].words[v] == key[0]){
+                        console.log("文档"+docs[i].id);
+                        break;
+                    }
+                }else {
+                    if(key[v]){
+                        if(docs[i].words[v]==key[v]){
+                            if(v==key.length-1){
+                                console.log("文档"+docs[i].id);
+                            }
+                        }else {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//function findDocList(docs, listArr) {
+//    return docs.filter(
+//        function(item) {
+//            var words = item.words,
+//
+//                // 循环使用
+//                i = 0,
+//                len = listArr.length;
+//
+//            for (; i < len; i++) {
+//                if (-1 === words.indexOf(listArr[i])) {
+//                    return false;
+//                }
+//            }
+//
+//            return true;
+//    });
+//}
+
+
+//写完感想：不要太麻烦哟。用到数组的遍历，break的用法等等。耗时一个多小时
+
+</script>
+</body>
+</html>
