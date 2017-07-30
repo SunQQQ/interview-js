@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<div id="element"></div>
+<script>
+    //    题目：现页面body内仅有一个div元素，并有如下js代码
+    //    题目：要求任意时间点击div内的任意a标签，
+    //    都要将该a标签的属性m和内容相加并alert出来
+    //    写出相应的可执行代码，代码将放到对应的TODO处执行
+setTimeout(function () {
+    var r=parseInt(Math.random()*100);
+    var a = '<a m="'+(r+1)+'">'+r+'</a>'
+    $("#element").append(a);
+},1000);
+//TODO 代码放到这里执行
+document.getElementById("element").onclick=function (e) {
+    console.log(e.target.attributes[0]);
+    console.log(e.target.getAttribute("m"));
+    console.log(e.target.innerHTML);
+    console.log(parseInt(e.target.innerHTML)+parseInt(e.target.getAttribute("m")));
+}
+</script>
+</body>
+</html>
