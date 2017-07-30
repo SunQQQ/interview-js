@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>考察函数</title>
+</head>
+<body>
+<script>
+//    题目1：执行a(5)的返回值是什么？执行a(5)后K和c的值分别是多少？
+    var k=c=0;
+    function a(n) {
+        return n?(n-1)*a(n-1):n;
+        k++;c++;
+        if(c>10)return c;
+    };
+    console.log(a(5));
+//    乍一看俗气，没想到写不出来。原来是忘记了0相当于false，除了0其他数字都相当于true
+
+//    题目2：问输出结果是什么？
+    function cc(i) {
+        if(i==3){i+=2}
+        if(i==5){i--}
+        if(i==4){i-=2}
+        return i;
+    }
+    for(var i=2;i<6;i++){
+//        console.log(i);
+        console.log(cc(i));
+    }
+//    这段代码好贱，别以为第一个if运行完了，就不再运行下面的if了。好吧，第一次我错了
+</script>
+</body>
+</html>

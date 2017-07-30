@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>考察类的继承</title>
+</head>
+<body>
+<script>
+//    题目：请说出空白区域应该填写什么？及函数fn的作用是？
+    (function (window) {
+        function fn(str) {
+            this.str = str;
+        }
+        fn.prototype.format = function () {
+            var arg = arguments;
+            return this.str.replace(/\?{2}\{(\d)\}/g,function (a,b) {return arg[b] || "";});
+        }
+        window.fn = fn;
+    })(window);
+
+    (function () {
+        var t = new fn('<p><a href="??{0}">??{1}</a><span>??{2}</span></p> ');
+        console.log(t.format("http://www.yonghongtecn.com",'Yonghong','Welcome'));
+    })();
+</script>
+</body>
+</html>
