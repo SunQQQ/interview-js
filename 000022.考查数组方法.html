@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>考查数组方法</title>
+</head>
+<body>
+<script>
+//    问题1.请写出判断一个变量名为arr的方法
+    var arr = [1,2,3];
+    console.log(arr instanceof Array);
+
+//    问题2.如何实现数组的随机排序(两种方法以上)？
+    var oldArr = ["a","b","c","d","e","f","g"];
+
+    function randomSort(oldArr) {
+        var newArr=[];
+        while (oldArr.length!=0){
+            var randomIndex = parseInt(Math.random()*(oldArr.length-1));
+            newArr.push(oldArr[randomIndex]);
+            oldArr.splice(randomIndex,1);
+        }
+        return newArr;
+    }
+    console.log(randomSort(oldArr));
+</script>
+</body>
+</html>

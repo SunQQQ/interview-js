@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>27.考查字符串</title>
+</head>
+<body>
+<script>
+//    题目1：如何将字符串转化为数字，例如‘12.3b’?
+    console.log(parseFloat("12.3b"));
+//    题目2：如何将浮点数点左边的数每三位添加一个逗号，如12000000，11转化为【12.000,000.11】?
+    function addComma(oldNumber) {
+        var newString="";
+        console.log(oldNumber.toString().join());
+        var pointIndex = oldNumber.toString().indexOf(".");
+        oldNumber.split("");
+        for(var i=0;i<oldNumber.split("");i++){
+            newString.concat(oldNumber[i]);
+            if(pointIndex-2>0){
+
+            }
+
+        }
+
+    }
+    addComma(12000000.11)
+</script>
+</body>
+</html>
