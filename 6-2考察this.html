@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    题目一：下面的代码会输出什么结果？给出你的答案
+    var fullname = "John Doe";
+    var obj = {
+        fullname:"Colin Ihrig",
+        prop:{
+            getFullName:function () {
+                return this.fullname;
+            }
+        }
+    };
+    console.log(obj.prop.getFullName());    //""colin thrig
+    var test = obj.prop.getFullName;
+    console.log(test()); //""colin thrig
+
+
+</script>
+</body>
+</html>
