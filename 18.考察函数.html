@@ -28,6 +28,18 @@
         console.log(cc(i));
     }
 //    这段代码好贱，别以为第一个if运行完了，就不再运行下面的if了。好吧，第一次我错了
+
+//    题目3：
+    function Foo() {
+        var ww=0;
+        return function () {
+            console.log(ww++);
+        }
+    }
+    var f1 = Foo(),f2=Foo();
+    f1();
+    f1();
+    f2();
 </script>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <body>
 <script>
     console.log("第一题");
-//    一下代码的运行结果
+//  题目一：以下代码的运行结果
     var myObject = {
         foo:"bar",
         func:function () {
@@ -24,6 +24,16 @@
 //    这题考查
     // 1.对象的方法里的this指向这个对象
     // 2.立即执行函数是一个新的作用域，里面的this就在该作用域里
+
+//    题目二：请写出下面的console.log输出的值
+    (function () {
+        var x=y=z=1;
+    }());
+//    console.log(x);
+    console.log(y);
+    console.log(z);
+    //题目二解析：脑子又不清醒了？都做过多少次了？声明的x是在方法体里，y，z都没有var，所以是全局的
+
 </script>
 </body>
 </html>

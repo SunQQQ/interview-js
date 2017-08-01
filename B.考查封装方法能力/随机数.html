@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机数</title>
+</head>
+<body>
+<script>
+//    编写一个javascript函数 fn，该函数有一个参数 n(数字类型)，其返回值是一个数组，
+//    该数组内是n个随机且不重复的整数，且整数取值范围是[2,32]
+    function fn(n) {
+        var resultArray = [];
+        parseInt(Math.random()*32);
+        for(var i=0;i<n.length;i++){
+            var randomInt = parseInt(Math.random()*32);
+            if(resultArray.indexOf(randomInt)>-1){
+                resultArray.push(randomInt);
+            }else {
+
+            }
+        }
+    }
+</script>
+</body>
+</html>

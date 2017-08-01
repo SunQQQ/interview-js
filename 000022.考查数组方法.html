@@ -10,7 +10,7 @@
     var arr = [1,2,3];
     console.log(arr instanceof Array);
 
-//    问题2.如何实现数组的随机排序(两种方法以上)？
+//    问题2.如何实现数组的随机排序(两种方法以上)？洗牌算法
     var oldArr = ["a","b","c","d","e","f","g"];
 
     function randomSort(oldArr) {
@@ -23,6 +23,38 @@
         return newArr;
     }
     console.log(randomSort(oldArr));
+
+//    问题3：实现对该数组的倒排？实现对该数组的降序排序（根据a从大到小排序）？
+    var array = [{a:4,b:5},{a:2,b:3},{a:5,b:2},{a:0,b:5}];
+    //倒排
+    function revise(oldArray) {
+        var newArray = [];
+        for(var i=array.length-1;i>-1;i--){
+            console.log(i);
+            newArray.push(oldArray[i]);
+        }
+        return newArray;
+    }
+    console.log(revise(array));
+    //降序排序
+    function mySort(array) {
+        for(var j=0;j<array.length;j++){
+            for(var w=0;w<array.length-1;w++){
+                if(array[w].a<array[w+1].a){
+                    var v = [];
+                    v = array[w];
+                    array[w] = array[w+1];
+                    array[w+1] = v;
+                }
+            }
+        }
+        return array;
+    }
+    console.log(mySort(array));
+
+//    问题4：请使用Math.max取出最大值（请不要使用遍历）。
+    var a = [1,3,4,0,2,55]
+    console.log(Math.max(a));
 </script>
 </body>
 </html>
