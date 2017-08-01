@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>声明提前</title>
+</head>
+<body>
+<script>
+//    题目一：一下程序运行后，y和z的值分别是什么？
+    var x=1,y=z=0;
+    function add(n) {
+        return n = n+2;
+    }
+    y=add(x);
+    console.log(y);
+    function add(n) {
+        return n=n+3;
+    }
+    z=add(x);
+    console.log(z);
+    //题目一解析：因为声明提前，所以最前面会申明一个变量。然后后面两个方法实现，下面的覆盖了上面的。所以结果是一样的
+</script>
+</body>
+</html>
