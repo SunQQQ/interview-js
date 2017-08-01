@@ -7,38 +7,38 @@
 <body>
 <script>
 //    题目一：介绍JS的基本数据类型
-//    boolean,undefined,null,string,number
+//    boolean,undefined,null,string,number,object
 
-//    方法一共有：typeof、instance of、
-//数据类型：undefined,null,boolean,number,string,object
-
-var myString = "abc";
-var myObject = {a:1};
+//    检测数据类型方法一共有：typeof、instanceof
+//typeof:适用于检测基本类型
+//instanceof:适用于检测引用类型。基于原型链检测，例如A intanceof B，A是否是B的实例
 var myBoolean = true;
-var myNull = null;
 var myUndefined = undefined;
+var myNull = null;
+//var myString = "abc";
+var myString = "abc";
 var myNumber = 123;
+var myObject = {a:1};
 
 var myArray = [1,2,3];
 var myFunction = function () {
     console.log("enhen");
 };
 
-
-
-
 //其实对于typeof来说，也就null比较特殊。
-console.log(typeof myString);
-console.log(typeof myObject);
 console.log(typeof myBoolean);
-console.log(typeof myNull);    //严加注意，极易出错
 console.log(typeof myUndefined);
+console.log(typeof myNull);
+console.log(typeof myString);
 console.log(typeof myNumber);
+console.log(typeof myObject);
 
+//string有包装类型，如果new出来则是对象，如果是直接双引号的就是string类型。Array本来就是对象。
 console.log(typeof myArray);
 console.log(typeof myFunction);
 
-console.log(myString instanceof String);
+//instanceof测试
+console.log(myArray instanceof Array);//
 console.log(myObject instanceof Object);
 
 </script>
