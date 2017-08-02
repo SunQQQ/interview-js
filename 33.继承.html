@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>考查继承</title>
+</head>
+<body>
+<script>
+//    题目一：用js写一个继承实例
+    function Super(width) {
+        this.height = width;
+    }
+    Super.prototype={
+        sell:function () {
+            console.log("高度"+this.height);
+        }
+    }
+    function Sub(width) {
+        Super.call(this,width);
+    }
+    Sub.prototype = new Super();
+
+    var sub = new Sub("8尺");
+    console.log(sub.sell());
+</script>
+</body>
+</html>
