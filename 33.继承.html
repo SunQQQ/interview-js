@@ -7,25 +7,27 @@
 <body>
 <script>
 //    题目一：用js写一个继承实例
-    function Super(width) {
-        this.height = width;
+    function Animal(color){
+        this.color = color;  //因为每个动物有各自的颜色，new出实例时要针对性的传参进来
     }
-    Super.prototype={
-        sell:function () {
-            console.log("高度"+this.height);
+    Animal.prototype = {//实例共用的方法才放在这里，若放构造方法，每个实例都创建一遍浪费资源
+        eat:function(){
+            console.log("不管是什么动物都有吃东西");
         }
     }
-    function Sub(width) {
-//        Super.call(this,width);
+
+    function Dog(color,shuangYanPi){
+        this.shuangYanPi = shuangYanPi;
+        Animal.call(this,color);
     }
-//    Sub.prototype = new Super();
+    Dog.prototype = new Animal();
+    var boyFriend = new Dog("花的",true);
+    boyFriend.eat();//
 
-//    var sub = new Sub("8尺");
-//    console.log(new Sub());
-
-//    console.log(Sub.prototype.__proto__==Super.prototype);
-    var mysuper = new Super();
-    console.log(mysuper.__proto__);
+    console.log(Dog.prototype.__proto__ == Animal.prototype);
+    console.log(boyFriend.__proto__ == Dog.prototype);
+    console.log(boyFriend.__proto__ == Dog.prototype);
+    console.log(boyFriend.shuangYanPi);
 </script>
 </body>
 </html>
