@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>到明天八点的倒计时</title>
+</head>
+<body>
+<div>当前时间</div>
+<div style="display: flex">
+    <div class="hour">00</div>
+    <div>:</div>
+    <div class="mint">00</div>
+    <div>:</div>
+    <div class="second">00</div>
+</div>
+<div>距离明早八点还有</div>
+<div style="display: flex">
+    <div class="leavehour">00</div>
+    <div>:</div>
+    <div class="leavemint">00</div>
+    <div>:</div>
+    <div class="leavesecond">00</div>
+</div>
+<script>
+    //    电子表
+    setInterval(function () {
+        var data = new Date();
+        if(data.getHours()<10){
+            document.getElementsByClassName("hour")[0].innerHTML = "0"+data.getHours();
+        }else {
+            document.getElementsByClassName("hour")[0].innerHTML = data.getHours();
+        }
+
+        if(data.getMinutes()<10){
+            document.getElementsByClassName("mint")[0].innerHTML = "0"+data.getMinutes();
+        }else {
+            document.getElementsByClassName("mint")[0].innerHTML = data.getMinutes();
+        }
+
+        if(data.getSeconds()<10){
+            document.getElementsByClassName("second")[0].innerHTML = "0"+data.getSeconds();
+        }else {
+            document.getElementsByClassName("second")[0].innerHTML = data.getSeconds();
+        }
+
+
+        //距离明早八点
+        var nowTime = (new Date()).getTime();
+        var tomoTime = (new Date("2017-8-3 15:00")).getTime();
+        var totalHaoMinu = tomoTime-nowTime;
+
+        var leaveHour = parseInt(totalHaoMinu/(60*60*1000));
+        var leaveMinu = parseInt((totalHaoMinu-(leaveHour*(60*60*1000)))/(60*1000));
+        var leaveSeconds = parseInt((totalHaoMinu - (leaveHour*(60*60*1000)) - (leaveMinu*(60*1000)))/1000);
+        var leaveHaomiao = totalHaoMinu - (leaveHour*(60*60*1000)) - (leaveMinu*(60*1000)) - leaveSeconds*1000;
+        document.getElementsByClassName("leavehour")[0].innerHTML = leaveHour+"小时";
+        document.getElementsByClassName("leavemint")[0].innerHTML = leaveMinu+"分钟";
+        document.getElementsByClassName("leavesecond")[0].innerHTML = leaveSeconds+"秒";
+    },500);
+
+
+</script>
+</body>
+</html>

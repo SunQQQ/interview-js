@@ -16,12 +16,16 @@
         }
     }
     function Sub(width) {
-        Super.call(this,width);
+//        Super.call(this,width);
     }
-    Sub.prototype = new Super();
+//    Sub.prototype = new Super();
 
-    var sub = new Sub("8尺");
-    console.log(sub.sell());
+//    var sub = new Sub("8尺");
+//    console.log(new Sub());
+
+//    console.log(Sub.prototype.__proto__==Super.prototype);
+    var mysuper = new Super();
+    console.log(mysuper.__proto__);
 </script>
 </body>
 </html>
