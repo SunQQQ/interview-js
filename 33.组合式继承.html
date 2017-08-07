@@ -33,10 +33,14 @@
     var boyFriend = new Dog("花的",true);
     boyFriend.eat();//
 
-    console.log(Dog.prototype.__proto__ == Animal.prototype);
-    console.log(boyFriend.__proto__ == Dog.prototype);
-    console.log(boyFriend.__proto__ == Dog.prototype);
-    console.log(boyFriend.shuangYanPi);
+
+    var animal = new Animal();
+    console.log(boyFriend.prototype);
+
+//    console.log(Dog.prototype.__proto__ == Animal.prototype);
+//    console.log(boyFriend.__proto__ == Dog.prototype);
+//    console.log(boyFriend.__proto__ == Dog.prototype);
+//    console.log(boyFriend.shuangYanPi);
 </script>
 </body>
 </html>
