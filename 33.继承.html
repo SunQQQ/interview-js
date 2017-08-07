@@ -9,12 +9,21 @@
 //    题目一：用js写一个继承实例
     function Animal(color){
         this.color = color;  //因为每个动物有各自的颜色，new出实例时要针对性的传参进来
-    }
-    Animal.prototype = {//实例共用的方法才放在这里，若放构造方法，每个实例都创建一遍浪费资源
-        eat:function(){
-            console.log("不管是什么动物都有吃东西");
+
+//        要么就这么写，要么就用下面的写法。如果这样写不能直接用对象字面量来写，因为这样会切断实例与构造函数的指向。但是放在下面可以因为，放下面是先执行修改指向在创建实例。
+        if(typeof this.eat!= "function"){
+            Animal.prototype.eat=function () {
+                console.log("不管是什么动物都有吃东西");
+            };
+            console.log("梦");
         }
     }
+//    Animal.prototype = {//实例共用的方法才放在这里，若放构造方法，每个实例都创建一遍浪费资源
+//        constructor:Animal,
+//        eat:function(){
+//            console.log("不管是什么动物都有吃东西");
+//        }
+//    }
 
     function Dog(color,shuangYanPi){
         this.shuangYanPi = shuangYanPi;
