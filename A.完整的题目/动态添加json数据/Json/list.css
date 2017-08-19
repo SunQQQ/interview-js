@@ -1,0 +1,38 @@
+
+.listTitle{
+    display:flex;
+}
+.myinput{
+    padding: 10px;
+}
+.listTitle .name{
+    flex:1;
+}
+.listTitle .phone{
+    flex:1;
+}
+
+.bottom{
+    position: fixed;
+    padding: 10px;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.inputs{
+    width: 300px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 30%;
+    right: 0;
+    margin:auto;
+    border: 1px solid #000000;
+    display: none;
+}
+.inputs .add{
+    text-align: center;
+    padding: 5px 0;
+}
