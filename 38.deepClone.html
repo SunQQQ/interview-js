@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>深复制和浅复制</title>
+</head>
+<body>
+<script>
+//    shallow clone
+    var obj = {a:1,b:[2,3]};
+    function shallowClone() {
+        var dst = {};
+        for(i in arguments[0]){
+            dst[i] = arguments[0][i];
+        }
+        return dst;
+    }
+    var shallowObj = shallowClone(obj);
+    console.log(shallowObj);
+
+    console.log(obj.constructor == Object);
+    /*总结浅复制：通过传递地址复制，换句话说就是通过复制引用类型的值，那引用类型的值
+    就是引用类型在栈里的地址，引用类型可以在栈里存多个地址，指向堆里的同一块区域。
+    这样就注定了会有克隆后的值，和以前的值指向同一个引用类型值的情况。测试如下。*/
+//    shallowObj.b.push(5);
+//    console.log(shallowObj.b);
+//    console.log(obj.b);
+
+
+//    deep clone
+    var obj = {a:1,b:[2,3]};
+    var dst = {};
+    function deepClone(oldOne) {
+
+    }
+    console.log(deepClone(obj));
+
+    var testObj = {a:1,0:2,1:3};
+    console.log(testObj);
+</script>
+</body>
+</html>
