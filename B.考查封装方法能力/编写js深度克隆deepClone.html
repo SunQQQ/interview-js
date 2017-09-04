@@ -6,9 +6,25 @@
 </head>
 <body>
 <script>
-    function deepClone() {
-        console.log("");
+//    浅复制
+    var ming = {
+        name:"张强",
+        brothers:{name:"马云",sex:"男"}
+    };
+    function Clone() {
+        var object =　{};
+        for(var i in arguments[0]){
+            object[i] = arguments[0][i];
+        }
+        return object;
     }
+    var clonedMing = Clone(ming);
+    console.log(clonedMing);
+
+
+    clonedMing.brothers.lover = "小花";
+    console.log(clonedMing.brothers);
+
 </script>
 </body>
 </html>
