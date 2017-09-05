@@ -10,10 +10,16 @@
     for(var i=0;i<3;i++){
         myString += "2";
     }
-    拼接字符串的规则是，每次拼接时都先拼接然后赋值给一个虚拟变量
+    console.log(myString);
+    /*拼接字符串的规则是，每次拼接时都先拼接然后赋值给一个虚拟变量，然后再赋值给以前的变量。
+    这样就要从新开辟内存，如果循环次数就会影响处理速度*/
 
-    var myArray = ["a","b","c"];
-    console.log(myArray.join(""));//'a,b,c'
+    /*替代方案是：创建一个数组，每次往数组push，最后join（""）。*/
+    var mystring2 = [];
+    for(var w=0;w<3;w++){
+        mystring2.push("2");
+    }
+    console.log(mystring2.join(""));
 </script>
 </body>
 </html>
