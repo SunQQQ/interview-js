@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机数</title>
+</head>
+<body>
+<script>
+//    题目一：编写一个javascript函数 fn，该函数有一个参数 n(数字类型)，其返回值是一个数组，
+//    该数组内是n个随机且不重复的整数，且整数取值范围是[2,32]
+    function fn(n) {
+        var resultArray = [];
+        for(var i=0;i<n;i++){
+            var randomInt = parseInt(2+Math.random()*8);
+            if(resultArray.length>0){
+                while(resultArray.indexOf(randomInt)>-1){
+                    randomInt = parseInt(2+Math.random()*8)
+                }
+            }
+            resultArray.push(randomInt);
+        }
+        return resultArray;
+    }
+    console.log(fn(8));
+
+//    实现思路：要求造出来的数组有n个随机整数，那么就遍历并向新数组push n次。要求不重复，那就在每次弄出一个新数字时while一下。
+//    只要新数组里有这个值就再重新随机一个出来。
+</script>
+</body>
+</html>

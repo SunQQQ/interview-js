@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+    <meta charset="UTF-8">
+    <title>逆序字符串</title>
+</head>
+<body>
+<script>
+//    题目：写出一个方法将字符串"abcdefg"逆序为"gfedcba"
+//    解法一：这个要记得字符串的API。字符串逐个拆分字符串为数组需要split（""）,数组变成字符串需要join方法
+//    function reverseString(oldString) {
+//        var newString;
+//        newString = oldString.split("").reverse().join("");
+//        return newString;
+//    }
+
+//    解法二：字符串用下标取值，用concat拼接字符串。注意变量要赋值为空字符串，不然没法调用字符串的方法。concat凭借的字符串会建一个新字符串
+    function reverseString(oldString) {
+        var newString="";
+        for(var i=oldString.length-1;i>-1;i--){
+            newString=newString.concat(oldString[i]);
+        }
+        return newString;
+    }
+
+    console.log(reverseString("abcdefg"));
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    有一个数组a=[8,10,30,55,78,90,1],新建一个数组b,b从a中一次随机选取一个元素,取完为止。
+//    思路：从a长度范围内产生随机数，每次从a拿到项放在b中后，删掉a中那项。直到a里面没有
+    var a=[8,10,30,55,78,90,1];
+    var b = [];
+
+    while (a.length!=0){
+        var num = parseInt(Math.random()*a.length);
+        b.push(a[num]);
+        a.splice(num,1);
+    }
+    console.log(a);
+    console.log(b);
+</script>
+</body>
+</html>

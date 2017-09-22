@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编写js深度克隆deepClone函数</title>
+</head>
+<body>
+<script>
+//    浅复制
+    var ming = {
+        name:"张强",
+        brothers:{name:"马云",sex:"男"}
+    };
+    function Clone() {
+        var object =　{};
+        for(var i in arguments[0]){
+            object[i] = arguments[0][i];
+        }
+        return object;
+    }
+    var clonedMing = Clone(ming);
+    console.log(clonedMing);
+
+
+    clonedMing.brothers.lover = "小花";
+    console.log(clonedMing.brothers);
+
+</script>
+</body>
+</html>

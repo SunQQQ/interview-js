@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>写一个sum求和方法</title>
+</head>
+<body>
+<script>
+//    题目：请编写函数sum：实现不定数量参数的求和；非number类型参数需要进行过滤；
+//    验证如下结果：sum(1,2,'Welcome',3)
+    var i;
+    function sum() {
+        var end = 0;
+        for(i=0;i<arguments.length;i++){
+            if(typeof arguments[i]=="number"){
+                end += arguments[i];
+            }
+        }
+        return end;
+    }
+    console.log(sum(1,2,'welcome',10));
+</script>
+</body>
+</html>

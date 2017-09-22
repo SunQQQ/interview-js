@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组的快速排序</title>
+</head>
+<body>
+<script>
+//    从小到大
+    var myArray = [7,12,11,66,89,1];
+//    这个方法并没错，只是另外一种排序方式
+//    for(var i=0;i<myArray.length-1;i++){
+//        for(var v=i+1;v<myArray.length;v++){
+//            if(myArray[i]>myArray[v]){
+//                var data = myArray[i];
+//                myArray[i]=myArray[v];
+//                myArray[v] = data;
+//            }
+//        }
+//    }
+
+//冒泡排序
+    for(var j=0;j<myArray.length;j++){
+        for(var i=0;i<myArray.length-1;i++){
+            if(myArray[i]>myArray[i+1]){
+                var data = myArray[i];
+                myArray[i]=myArray[i+1];
+                myArray[i+1] = data;
+            }
+        }
+    }
+
+
+//    冒泡排序的思路跟第一个截然不同：冒泡里面从头到尾一个挨一个换位置，然后再从头到尾来一遍，有多少数组都来几遍
+    console.log(myArray);
+</script>
+</body>
+</html>
