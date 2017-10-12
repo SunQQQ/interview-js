@@ -7,6 +7,54 @@
 <body>
 <script>
     var ba;
+
+    //1.判断字符串是否包含数字
+    var data1 = "abcsf10z";
+    var data2 = "abcsfz";
+    function containNum() {
+        if(/\d/.test(arguments[0])){
+            console.log("有数字");
+        }else {
+            console.log("无数字");
+        }
+    }
+    containNum(data1);
+    containNum(data2);
+
+    //2.从一个字符串中提取链接地址
+    function getUrl() {
+        var myd = /^http题$/.exec(arguments[0])
+        console.log(myd);
+    }
+    var containUrl = "IT面试题博客中包含很多<a href='http://hi.baidu.com/mianshiti/blog/category/微软面试题'>微软面试题</a>";
+    getUrl(containUrl);
+
+    //3.判断连续重复字母
+    var doubleChract = "abcccfz";
+    function getDoubleChract() {
+        if(/([a-zA-Z])\1/.test(arguments[0])){
+            console.log(/([a-zA-Z])\1/.exec(arguments[0]));
+        }else {
+            console.log("没有连续字母");
+        }
+    }
+    getDoubleChract(doubleChract);
+
+    //4.判断是否以元音字母结尾
+    var yuan1 = "animal";
+    var yuan2 = "li";
+    var yuan3 = "fou";
+    function testYuan() {
+        if(/(a|e|i|o|u)$/.test(arguments[0])){
+            console.log("是元音字母结尾");
+        }else {
+            console.log("不是元音字母结尾");
+        }
+    }
+    testYuan(yuan1);
+    testYuan(yuan2);
+    testYuan(yuan3);
+
     /*
      题目一：RegluarExpressionValidator控件中可以加入正则表达式，下面选项对
      正则表达式说法正确的是？
@@ -22,6 +70,7 @@
      *是任意个字符
      /d是数字
      */
+
 </script>
 </body>
 </html>
