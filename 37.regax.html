@@ -5,6 +5,9 @@
     <title>正则表达式</title>
 </head>
 <body>
+    <div class="hint">
+        习近平是中国现任主席。周永康是谁？我不太了解。今日召开中共十次会议
+    </div>
 <script>
     var ba;
 
@@ -23,11 +26,12 @@
 
     //2.从一个字符串中提取链接地址
     function getUrl() {
-        var myd = /^http题$/.exec(arguments[0])
-        console.log(myd);
+        var myd = /http.+'/.exec(arguments[0])
+        return myd;
     }
     var containUrl = "IT面试题博客中包含很多<a href='http://hi.baidu.com/mianshiti/blog/category/微软面试题'>微软面试题</a>";
-    getUrl(containUrl);
+    var url = getUrl(containUrl);
+    console.log(url);
 
     //3.判断连续重复字母
     var doubleChract = "abcccfz";
@@ -44,8 +48,16 @@
     var yuan1 = "animal";
     var yuan2 = "li";
     var yuan3 = "fou";
+    var yuan4 = "we";
+//    function testYuan() {
+//        if(/(a|e|i|o|u)$/.test(arguments[0])){
+//            console.log("是元音字母结尾");
+//        }else {
+//            console.log("不是元音字母结尾");
+//        }
+//    }
     function testYuan() {
-        if(/(a|e|i|o|u)$/.test(arguments[0])){
+        if(/[aeiou]$/.test(arguments[0])){
             console.log("是元音字母结尾");
         }else {
             console.log("不是元音字母结尾");
@@ -54,7 +66,32 @@
     testYuan(yuan1);
     testYuan(yuan2);
     testYuan(yuan3);
+    testYuan(yuan4);
 
+    //5.假设现有一篇文章var content = "...大量文字"，文章触及到一些敏感词['习近平','周永康','中共','6.4']等，
+    /*如何在文章中发现这些敏感词，并将背景设为红色或改变字体颜色标识出来。*/
+    var content = "习近平是中国现任主席。周永康是谁？我不太了解。今日召开中共十次会议";
+    content3 = content.replace(/习近平|周永康|中共/g,function (ret) {
+        var match;
+        switch(ret.length){
+            case 2:
+                match = "**";
+                break;
+            case 3:
+                match = "***";
+                break;
+        }
+        return match;
+    });
+    console.log(content3);
+
+    content4 = document.getElementsByClassName("hint")[0].innerHTML.replace(/习近平|周永康|中共/g,function (ret) {
+        return '<span style="color:red">' + ret + '</span>';
+    });
+    document.getElementsByClassName("hint")[0].innerHTML = content4;
+
+    //题目6.让2013-6-7 变成 2013.6.7
+    console.log("2013-6-7".replace(/\-/g,"."));
     /*
      题目一：RegluarExpressionValidator控件中可以加入正则表达式，下面选项对
      正则表达式说法正确的是？
@@ -63,13 +100,22 @@
      C."[A-Z]"表示A-Z有顺序的大写字母
      D."/d"表示任意字符
 
-    题目二：腾讯QQ号从10000开始，目前最高为10位
-
      第一题解析
+
      .是任意一个字符
      *是任意个字符
      /d是数字
+
+     题目二：腾讯QQ号从10000开始，目前最高为10位
      */
+
+    "IT面试题博客中包含很多  <a href='http://hi.baidu.com/mianshiti/blog/category/微软面试题'> 微软面试题 </a> "
+
+    var str = 'IT面试题博客中包含很多  <a href="http://hi.baidu.com/mianshiti/blog/category/微软面试题">微软面试题</a>';
+    var regExp = /<a(?: [^=XXFN}*)+href="(.*)"(?: {FNXX=]*)*>/;
+    console.log(regExp.exec(str)[1]);
+    //http://hi.baidu.com/mianshiti/blog/category/微软面试题
+
 
 </script>
 </body>
