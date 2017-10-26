@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .list{
+            display: flex;
+            padding: 5px;
+            border: 1px solid black;
+            width: 300px;
+        }
+        .list .content{
+            height: 50px;
+            flex: 1;
+            margin: 0 5px;
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div class="list" id="b">
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content">第三部分</div>
+</div>
+<script>
+    var list = document.getElementsByClassName("list")[0].getElementsByTagName("div")[2].innerHTML;
+
+    var div3 = document.getElementById("b").getElementsByTagName("div")[2].innerHTML;
+
+    console.log(list);
+    console.log(div3);
+</script>
+</body>
+</html>

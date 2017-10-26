@@ -6,11 +6,15 @@
 </head>
 <body>
 <script>
-    var array = [{a:1},{b:2}];
-    console.log(JSON.stringify(array));
-//    Json和对象的特殊之处，Json的属性都是加了双引号的。
+//对比对象和json字符串的区别、对比，以及将对象转化为json字符串（好像叫序列化）
+    var object = [{a:1},{b:2}];
+    var jsonString = JSON.stringify(object);
+    console.log(jsonString);  /*[{"a":1},{"b":2}]，json的键是要加引号的，js对象不加*/
 
-    var jsonString = "0";
+//把json字符串转成对象,json字符串最外层必须是单引号
+    var jsonString2 = '{"name":"sq","sex":"man","age":23}';
+    var object2 = JSON.parse(jsonString2);
+    console.log(object2);    //{name: "sq", sex: "man", age: 23}
 </script>
 </body>
 </html>
