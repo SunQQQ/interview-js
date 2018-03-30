@@ -13,11 +13,23 @@
     <li>test5</li>
 </ul>
 
+<ul class="layui-nav layui-layout-left kit-nav" kit-one-level="" id="layui-layout-left">
+    <li class="layui-nav-item"><a href="javascript:;" data-title="档案管理" data-icon="fa-circle-o" data-id="1"><i
+            class="fa fa-circle-o" aria-hidden="true"></i><span> 档案管理</span></a></li>
+    <li class="layui-nav-item"><a href="javascript:;" data-title="考勤管理" data-icon="" data-id="2"><i class="layui-icon"></i><span> 考勤管理</span></a>
+    </li>
+    <li class="layui-nav-item"><a href="javascript:;" data-title="电话管理" data-icon="fa-heartbeat" data-id="3"><i
+            class="fa fa-heartbeat" aria-hidden="true"></i><span> 电话管理</span></a></li>
+    <span class="layui-nav-bar" style="left: 235.406px; top: 50px; width: 0px; opacity: 0;"></span></ul>
+
 <script>
     var lis = document.getElementsByTagName("ul")[0].getElementsByTagName("li");
-    for(var i=0;i<lis.length;i++){
+    for (var i = 0; i < lis.length; i++) {
         console.log(lis[i].innerHTML);
     }
+
+    var Lis = document.getElementById("layui-layout-left").getElementsByTagName("li");
+    Lis[0].className = "layui-nav-item layui-this";
 </script>
 </body>
 </html>

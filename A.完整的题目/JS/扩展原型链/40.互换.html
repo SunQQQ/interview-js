@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+	<script>
+		var a = [1,4,6,43,5,9,0,23,45];
+		Array.prototype.transition = function (k,j) {
+			var c = this[k];
+			this[k] = this[j];
+			this[j] = c;
+		};
+		a.transition(3,7);
+		console.log(a);
+	</script>
+	</body>
+</html>
