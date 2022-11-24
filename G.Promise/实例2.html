@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 面试官要求我们每隔一秒，打印一个数字
+
+        // 1、我们可能首先想到的是，for循环加setTimeout，但是是满足不了的
+        for(let i=0;i<5;i++){
+            setTimeout(() => {
+                console.log(i);
+            }, 1000);
+        }
+
+        // 2、把上面的代码，用promise实现
+        for(let i=0;i<5;i++){
+            new Promise((resolve,reject)=>{
+                setTimeout(() => {
+                    resolve(i);
+                }, 1000);
+            }).then((v)=>{
+                console.log(`promise ${v}`);
+                // console.log('promise' + v);
+            });
+        }
+    </script>
+</body>
+</html>
