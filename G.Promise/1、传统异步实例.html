@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 面试官要求我们用异步操作模拟一个做饭过程，过程包括
+        // 买菜、洗菜、炒菜、刷碗
+        // 每个过程假如耗时2s，当然每步都要等待上步结束才能执行
+
+        // 1、在ES5时可以用setTimeout模拟异步过程，用回调函数处理异步操作
+        let time = 2000;
+        setTimeout(() => {
+            console.log("1、买菜");
+            setTimeout(() => {
+                console.log("2、洗菜");
+                setTimeout(() => {
+                    console.log("3、炒菜");
+                    setTimeout(() => {
+                        console.log("4、刷碗");
+                    }, time);
+                }, time);
+            }, time);
+        },time);
+
+        // 2、用ES6的promise
+        var cookPro = function(action){
+            return new Promise((resolve,reject) => {
+                setTimeout(() => {                  
+                    resolve(action);
+                }, 2000);
+            });
+        }
+        cookPro("1、买菜").then((v)=>{
+            console.log(v);
+            return cookPro("2、洗菜");
+        }).then((v)=>{
+            console.log(v);
+            return cookPro("3、炒菜");
+        }).then((v)=>{
+            console.log(v);
+            return cookPro("4、刷碗");
+        }).then((v)=>{
+            console.log(v);
+        });
+        
+
+
+        
+
+    </script>
+</body>
+</html>
