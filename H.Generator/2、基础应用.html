@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         // 面试官要求我们每隔一秒，打印一个数字
@@ -18,24 +20,37 @@
             }, 1000);
         }
 
-        // 2、把上面的代码，用promise实现
-        function a(v){
-            return new Promise((resolve,reject)=>{
+        // 2、用promise实现实现需求
+        function a(v) {
+            return new Promise((resolve, reject) => {
                 setTimeout(() => {
                     resolve(v);
                 }, 1000);
             });
         }
 
-        for(let i=0;i<5;i++){
-            new Promise((resolve,reject)=>{
-                setTimeout(() => {
-                    resolve(i);
-                }, 1000);
-            }).then((v)=>{
-                console.log(v);
+        function* deley() {
+            for (let i = 0; i < 5; i++) {
+                var y = yield a(i);
+            }
+        }
+
+        var del = deley();
+
+        co(del);
+
+        function co(generator) {
+            let {value,done} = generator.next();
+            
+            if(done) return;
+            value.then((a) => {
+                console.log(a);
+                co(del);
             });
         }
+
+        // 3、总结：Generator的缺点是需要回调执行yield
     </script>
 </body>
+
 </html>
