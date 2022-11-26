@@ -21,6 +21,8 @@
         }
 
         // 2、用promise实现实现需求
+
+        //用promise实现回调
         function a(v) {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
@@ -29,6 +31,7 @@
             });
         }
 
+        // 遍历出多个yield
         function* deley() {
             for (let i = 0; i < 5; i++) {
                 var y = yield a(i);
@@ -49,7 +52,7 @@
             });
         }
 
-        // 3、总结：Generator的缺点是需要回调执行yield
+        // 3、总结：Generator的缺点是需要迭代执行yield
     </script>
 </body>
 

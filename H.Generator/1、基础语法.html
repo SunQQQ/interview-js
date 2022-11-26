@@ -12,13 +12,13 @@
     <script>
         // 如下为Generator的基础使用
         function * gene() {
-            let a = yield 5;
-            console.log(a);
+            yield 5,
+            yield 10
         }
 
-        let name = gene();
-        console.log(name.next());
-        console.log(name.next());
+        let name = gene(); // 拿到Generator的返回值；
+        console.log(name.next().value); // 用next方法调用generator实例中yield
+        console.log(name.next().value); // 用next方法调用generator实例中yield
     </script>
 
 </body>
