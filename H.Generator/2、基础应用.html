@@ -13,14 +13,14 @@
         // 面试官要求我们每隔一秒，打印一个数字
 
         // 1、我们可能首先想到的是，for循环加setTimeout，但是是满足不了的
-        for(let i=0;i<5;i++){
-            // console.log("zz"+i);
-            setTimeout(() => {
-                console.log(i);
-            }, 1000);
-        }
+        // for(let i=0;i<5;i++){
+        //     // console.log("zz"+i);
+        //     setTimeout(() => {
+        //         console.log(i);
+        //     }, 1000);
+        // }
 
-        // 2、用promise实现实现需求
+        // 2、用Generator实现实现需求
 
         //用promise实现回调
         function a(v) {
@@ -31,28 +31,29 @@
             });
         }
 
-        // 遍历出多个yield
+        // 遍历出多个yield，实现断层
         function* deley() {
             for (let i = 0; i < 5; i++) {
                 var y = yield a(i);
+                console.log(y);
             }
         }
 
         var del = deley();
 
-        co(del);
+        debugger;
+        co();
 
-        function co(generator) {
-            let {value,done} = generator.next();
+        function co(v) {
+            let {value,done} = del.next(v);
             
             if(done) return;
             value.then((a) => {
-                console.log(a);
-                co(del);
+                co(a); // 通过给next传值，改变上一个field的执行结果。即为变量y赋值，然后console
             });
         }
 
-        // 3、总结：Generator的缺点是需要迭代执行yield
+        // 3、总结：Generator的缺点是需要递归执行yield
     </script>
 </body>
 

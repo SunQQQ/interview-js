@@ -12,7 +12,11 @@
     <script>
         // 如下为Generator的基础使用
         function * gene() {
+            // 每次构造器实例执行next()后，执行函数内部语句。遇到yield执行完当前语句后，停止
+            console.log("第一个yield");
             yield 5,
+            // 再次执行next()时，会从上一个yield下一句开始
+            console.log("第2个yield");
             yield 10
         }
 
