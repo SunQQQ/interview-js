@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 面试官要求我们每隔一秒，打印一个数字
+
+        // 1、可以用promise实现需求，但是需要递归调用很麻烦
+
+        //用promise实现回调
+        // function a(v) {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve(v);
+        //         }, 1000);
+        //     });
+        // }
+
+        // // 遍历出多个yield
+        // function* deley() {
+        //     for (let i = 0; i < 5; i++) {
+        //         var y = yield a(i);
+        //         console.log(y);
+        //     }
+        // }
+
+        // debugger
+        // var del = deley();
+
+        // co();
+
+        // function co(v) {
+        //     let {value,done} = del.next(v);
+            
+        //     if(done) return;
+        //     value.then((num) => {
+        //         co(num);
+        //     });
+        // }
+
+
+        // 2、用async+await可以实现对Generator的简写
+        function a(v) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(v);
+                }, 1000);
+            });
+        }
+
+        // 使用async和await可以实现简写
+        async function deley() {
+            for (let i = 0; i < 5; i++) {
+                var y = await a(i); // y接收的await后面promise对象then成功态得到的数据
+                console.log(y);
+            }
+        }
+
+        // 使用async和await不需要自己写递归了
+        var del = deley();
+    </script>
+</body>
+</html>
